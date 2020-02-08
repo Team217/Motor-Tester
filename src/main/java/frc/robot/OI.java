@@ -33,6 +33,7 @@ public class OI {
     public Button leftBumperDriver = new JoystickButton(driver, leftBumper);
     public Button circleDriver = new JoystickButton(driver, buttonCircle);
     public Button triangleDriver = new JoystickButton(driver, buttonTriangle);
+    public Button xDriver = new JoystickButton(driver, buttonX);
     public Button squareDriver = new JoystickButton(driver, buttonSquare);
     public Button rightBumperDriver = new JoystickButton(driver, rightBumper);
     public Button rightTriggerDriver = new JoystickButton(driver, rightTrigger);

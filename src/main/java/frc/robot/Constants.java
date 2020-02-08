@@ -25,10 +25,14 @@ public final class Constants {
 
     //Motor IDs
     public static final int Victor1_ID = 1;
-    public static final int Victor2_ID = 2; 
-    public static final int Sparkmax1_ID = 3; 
+    public static final int Victor2_ID = 2;
+    public static final int Sparkmax1_ID = 3;
     public static final int Sparkmax2_ID = 4;
     public static final int Talon1_ID = 5;
+    public static final int Talon2_ID = 8;
+    public static final int Talon3_ID = 9;
+    public static final int Falcon1_ID = 6;
+    public static final int Falcon2_ID = 7;
 
     // Buttons
     public static final int buttonSquare = 1;
@@ -44,9 +48,12 @@ public final class Constants {
     public static final int rightAnalog = 12;
     public static final int touchPad = 14;
 
-      // Axes
-      public static final int X_Axis = 0;
-      public static final int Y_Axis = 1;
-      public static final int Z_Axis = 2;
-      public static final int Z_RotateAxis = 5;
+    // Axes
+    public static final int X_Axis = 0;
+    public static final int Y_Axis = 1;
+    public static final int Z_Axis = 2;
+    public static final int Z_RotateAxis = 5;
+
+    public static double defaultF = 0.0501, defaultP = 2.5, defaultI = 0, defaultD = 0;
+    public static double defaultVel = 15000;
 }
