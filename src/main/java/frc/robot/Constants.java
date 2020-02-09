@@ -58,5 +58,5 @@ public final class Constants {
     public static double falconDefaultVel = 15000;
     
     public static double talonDefaultF = 0.015, talonDefaultP = 1, talonDefaultI = 0, talonDefaultD = 0;
-    public static double talonDefaultVel = 20000;
+    public static double talonDefaultVel = 50000;
 }
