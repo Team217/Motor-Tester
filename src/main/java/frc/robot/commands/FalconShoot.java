@@ -46,7 +46,7 @@ public class FalconShoot extends CommandBase {
         }
 
         if (Robot.oi.rightBumperDriver.get()) {
-            Robot.kMotorSubsystem.setTalonVel(6000);
+            Robot.kMotorSubsystem.setTalonVel(5000);
             SmartDashboard.putNumber("Intake Vel", RobotContainer.talon3.getSelectedSensorVelocity());
             SmartDashboard.putNumber("Intake %", RobotContainer.talon3.get());
         }

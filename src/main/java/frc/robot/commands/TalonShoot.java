@@ -46,7 +46,7 @@ public class TalonShoot extends CommandBase {
         }
 
         if (Robot.oi.rightBumperDriver.get()) {
-            Robot.kMotorSubsystem.setTalon3Vel(6000);
+            Robot.kMotorSubsystem.setTalon3Vel(5000);
             SmartDashboard.putNumber("Intake Vel", RobotContainer.talon3.getSelectedSensorVelocity());
             SmartDashboard.putNumber("Intake %", RobotContainer.talon3.get());
         }

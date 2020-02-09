@@ -54,8 +54,10 @@ public class Robot extends TimedRobot {
         shooterMode.addOption("Talon", "Talon");
 
         talon3.setup();
-        talon3.config_kF(0, 0.128);
-        talon3.config_kP(0, 0.03);
+        talon3.config_kF(0, 0.14);
+        talon3.config_kP(0, 0.1);
+        talon3.config_kD(0, 0.05);
+        talon3.config_IntegralZone(0, 100, 30);
         talon3.setSensorPhase(true);
 
         talon1.setup();
@@ -113,8 +115,8 @@ public class Robot extends TimedRobot {
         falcon1.config_kD(0, falconkD, 30);
 
 
-        if (talon1.getSelectedSensorVelocity() < 6000) {
-            //talon1.configClosedloopRamp(2, 30);
+        if (talon1.getSelectedSensorVelocity() < 15000) {
+            talon1.configClosedloopRamp(1, 30);
         }
         else {
             talon1.configClosedloopRamp(0, 30);
