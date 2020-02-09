@@ -55,16 +55,16 @@ public class Robot extends TimedRobot {
 
         talon3.setup();
         talon3.config_kF(0, 0.128);
-        talon3.config_kP(0, 0.05);
+        talon3.config_kP(0, 0.03);
         talon3.setSensorPhase(true);
 
         talon1.setup();
-        talon1.config_IntegralZone(0, 100, 30);
+        talon1.config_IntegralZone(0, 200, 30);
         talon1.setSensorPhase(true);
         talon2.follow(talon1);
 
         falcon1.setup();
-        falcon1.config_IntegralZone(0, 50, 30);
+        falcon1.config_IntegralZone(0, 100, 30);
         SmartDashboard.setDefaultNumber("Falcon kF", falconDefaultF);
         SmartDashboard.setDefaultNumber("Falcon kP", falconDefaultP);
         SmartDashboard.setDefaultNumber("Falcon kI", falconDefaultI);
