@@ -15,11 +15,11 @@ import frc.robot.*;
 
 import static frc.robot.Constants.*;
 
-public class FalconMove extends CommandBase {
+public class TalonShoot extends CommandBase {
     /**
      * Creates a new FalconMove.
      */
-    public FalconMove() {
+    public TalonShoot() {
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(Robot.kMotorSubsystem);
     }
@@ -32,34 +32,37 @@ public class FalconMove extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        double speed1 = Num.deadband(Robot.oi.driver.getY(), 0.08);
+        double speed = Num.deadband(Robot.oi.driver.getY(), 0.08);
 
         if (Robot.oi.rightTriggerDriver.get()) {
-            Robot.kMotorSubsystem.setFalcon(speed1 * .9);
+            Robot.kMotorSubsystem.setTalon(speed * .9);
         }
         else if (Robot.oi.leftTriggerDriver.get()) {
-            double vel = SmartDashboard.getNumber("Target Velocity", defaultVel);
-            Robot.kMotorSubsystem.setFalconVel(vel);
-        }
-        else {
-            Robot.kMotorSubsystem.setFalcon(0);
-        }
-
-        if (Robot.oi.rightBumperDriver.get()) {
-            //Robot.kMotorSubsystem.setTalonVel(1000);
-            Robot.kMotorSubsystem.setTalon(0.5);
-            SmartDashboard.putNumber("Intake Vel", RobotContainer.talon3.getSelectedSensorVelocity());
+            double vel = SmartDashboard.getNumber("Talon Target Velocity", talonDefaultVel);
+            Robot.kMotorSubsystem.setTalonVel(vel);
         }
         else {
             Robot.kMotorSubsystem.setTalon(0);
+        }
+
+        if (Robot.oi.rightBumperDriver.get()) {
+            Robot.kMotorSubsystem.setTalon3Vel(6000);
+            SmartDashboard.putNumber("Intake Vel", RobotContainer.talon3.getSelectedSensorVelocity());
+            SmartDashboard.putNumber("Intake %", RobotContainer.talon3.get());
+        }
+        else if (Robot.oi.leftBumperDriver.get()) {
+            Robot.kMotorSubsystem.setTalon3(-0.5);
+        }
+        else {
+            Robot.kMotorSubsystem.setTalon3(0);
         }
     }
 
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.kMotorSubsystem.setFalcon(0);
         Robot.kMotorSubsystem.setTalon(0);
+        Robot.kMotorSubsystem.setTalon3(0);
     }
 
     // Returns true when the command should end.

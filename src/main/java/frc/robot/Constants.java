@@ -54,6 +54,9 @@ public final class Constants {
     public static final int Z_Axis = 2;
     public static final int Z_RotateAxis = 5;
 
-    public static double defaultF = 0.0501, defaultP = 2.5, defaultI = 0, defaultD = 0;
-    public static double defaultVel = 15000;
+    public static double falconDefaultF = 0.0501, falconDefaultP = 2.5, falconDefaultI = 0, falconDefaultD = 0;
+    public static double falconDefaultVel = 15000;
+    
+    public static double talonDefaultF = 0.015, talonDefaultP = 1, talonDefaultI = 0, talonDefaultD = 0;
+    public static double talonDefaultVel = 20000;
 }

@@ -38,22 +38,24 @@ public class MotorSubsystem extends SubsystemBase {
         victor2.set(speed2);
     }
 
-    public void setTalon2(double speed1) {
-        talon2.set(speed1);
-    }
-
     public void setTalon(double speed) {
-        talon3.set(speed);
+        talon1.set(speed);
     }
 
     public void setTalonVel(double vel) {
+        talon1.set(ControlMode.Velocity, vel);
+    }
+
+    public void setTalon3(double speed) {
+        talon3.set(speed);
+    }
+
+    public void setTalon3Vel(double vel) {
         talon3.set(ControlMode.Velocity, vel);
     }
 
     public void setFalcon(double speed) {
-        //falcon1.set(ControlMode.Velocity, 21.667);
         falcon1.set(speed);
-        //falcon2.set(speed);
     }
 
     public void setFalconVel(double vel) {

@@ -42,13 +42,13 @@ public class MotorMove extends CommandBase {
         if (Robot.oi.leftBumperDriver.get()) {
             Robot.kMotorSubsystem.setVictor(speed1 * .7, -speed2 * .7);
             if (Robot.oi.circleDriver.get()) {
-                Robot.kMotorSubsystem.setTalon2(.3);
+                Robot.kMotorSubsystem.setTalon3(.3);
             }
             else if (Robot.oi.squareDriver.get()) {
-                Robot.kMotorSubsystem.setTalon2(-.3);
+                Robot.kMotorSubsystem.setTalon3(-.3);
             }
             else {
-                Robot.kMotorSubsystem.setTalon2(0);
+                Robot.kMotorSubsystem.setTalon3(0);
             }
         }
         else if (Robot.oi.touchPadDriver.get()) {
@@ -63,19 +63,19 @@ public class MotorMove extends CommandBase {
             System.out.println("Speed 2: " + speed2);
         }
         else if (Robot.oi.circleDriver.get()) {
-            Robot.kMotorSubsystem.setTalon2(.3);
+            Robot.kMotorSubsystem.setTalon3(.3);
         }
         else if (Robot.oi.squareDriver.get()) {
-            Robot.kMotorSubsystem.setTalon2(-.3);
+            Robot.kMotorSubsystem.setTalon3(-.3);
         }
         else if (Robot.oi.xDriver.get()) {
-            double vel = SmartDashboard.getNumber("Target Velocity", defaultVel);
+            double vel = SmartDashboard.getNumber("Falcon Target Velocity", falconDefaultVel);
             Robot.kMotorSubsystem.setFalconVel(vel);
         }
         else {
             Robot.kMotorSubsystem.setSparkMax(0, 0);
             Robot.kMotorSubsystem.setVictor(0, 0);
-            Robot.kMotorSubsystem.setTalon2(0);
+            Robot.kMotorSubsystem.setTalon3(0);
             Robot.kMotorSubsystem.setFalcon(0);
         }
     }
@@ -83,6 +83,10 @@ public class MotorMove extends CommandBase {
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
+        Robot.kMotorSubsystem.setSparkMax(0, 0);
+        Robot.kMotorSubsystem.setVictor(0, 0);
+        Robot.kMotorSubsystem.setTalon3(0);
+        Robot.kMotorSubsystem.setFalcon(0);
     }
 
     // Returns true when the command should end.
