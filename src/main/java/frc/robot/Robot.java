@@ -77,7 +77,7 @@ public class Robot extends TimedRobot {
         SmartDashboard.setDefaultNumber("Talon kD", talonDefaultD);
         SmartDashboard.setDefaultNumber("Talon Target Velocity", talonDefaultVel);
 
-        SmartDashboard.putData("Shooter mode", shooterMode);
+        SmartDashboard.putData("Shooter Mode", shooterMode);
     }
 
     /**

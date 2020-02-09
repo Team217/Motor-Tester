@@ -40,12 +40,11 @@ public class MotorMove extends CommandBase {
         double speed2 = Num.deadband(Robot.oi.driver.getRawAxis(5), 0.08);
 
         if (Robot.oi.leftBumperDriver.get()) {
-            Robot.kMotorSubsystem.setVictor(speed1 * .7, -speed2 * .7);
             if (Robot.oi.circleDriver.get()) {
-                Robot.kMotorSubsystem.setTalon3(.3);
+                Robot.kMotorSubsystem.setTalon3(speed1);
             }
             else if (Robot.oi.squareDriver.get()) {
-                Robot.kMotorSubsystem.setTalon3(-.3);
+                Robot.kMotorSubsystem.setVictor(speed1 * .7, -speed2 * .7);
             }
             else {
                 Robot.kMotorSubsystem.setTalon3(0);
